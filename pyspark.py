@@ -9,7 +9,7 @@ def main():
     word = cut.flatMap(lambda xs : (tuple(x) for x in zip(xs, xs[1:])))
     dictword = word.map(lambda x: (x, 1))
     wz = dictword.reduceByKey(lambda a, b: a + b)
-    wz.saveAsTextFile('user/cloudera/wz/output')
+    wz.saveAsTextFile('/user/cloudera/wz/output')
     sc.stop()
 
 if __name__ == '__main__':
