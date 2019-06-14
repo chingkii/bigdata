@@ -4,7 +4,7 @@ from pyspark import SparkContext
 
 def main():
     sc = SparkContext(appName="2WC")
-    input_text = sc.textFile('user/cloudera/wz/test_wordcount.txt')
+    input_text = sc.textFile('user/cloudera/wz/2wordcount.txt')
     cut = input_text.map(lambda line : line.strip().split(" "))
     word = cut.flatMap(lambda xs : (tuple(x) for x in zip(xs, xs[1:])))
     dictword = word.map(lambda x: (x, 1))
